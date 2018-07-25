@@ -1,0 +1,102 @@
+[
+  {
+    "comments": [
+      {
+        "line": 1,
+        "value": "#language: pt"
+      }
+    ],
+    "line": 3,
+    "elements": [
+      {
+        "line": 9,
+        "name": "Deve validar a reserva de hotel",
+        "description": "",
+        "id": "reservar;deve-validar-a-reserva-de-hotel",
+        "after": [
+          {
+            "result": {
+              "duration": 2435631257,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Common_StepDefinition.screenShot(Scenario)"
+            }
+          },
+          {
+            "result": {
+              "duration": 2800097682,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Common_StepDefinition.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Cenário",
+        "steps": [
+          {
+            "result": {
+              "duration": 9082229832,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "que esteja na página inicial",
+            "match": {
+              "location": "Common_StepDefinition.queEstejaNaPáginaInicial()"
+            },
+            "keyword": "Dado "
+          },
+          {
+            "result": {
+              "duration": 4560035233,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "pesquisar e selecionar um hotel ou serciço adicional",
+            "match": {
+              "location": "ReservarHotel.pesquisar_e_selecionar_um_hotel_ou_serciço_adicional()"
+            },
+            "keyword": "Quando "
+          },
+          {
+            "result": {
+              "duration": 24752,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "preencher os campos de pagamento",
+            "match": {
+              "location": "ReservarHotel.preencher_os_campos_de_pagamento()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 35016,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "a reserva deverá ser confimada",
+            "match": {
+              "location": "ReservarHotel.a_reserva_deverá_ser_confimada()"
+            },
+            "keyword": "Então "
+          }
+        ],
+        "tags": [
+          {
+            "line": 8,
+            "name": "@reservarHotel"
+          }
+        ]
+      }
+    ],
+    "name": "Reservar",
+    "description": "Eu como usuário\r\nQuero entrar no Portal \r\nPara fazer uma reserva de hotel",
+    "id": "reservar",
+    "keyword": "Funcionalidade",
+    "uri": "Reservar.feature"
+  }
+]
