@@ -8,9 +8,14 @@ import java.util.Date;
 import org.apache.commons.io.FileUtils;
 import org.easetech.easytest.runner.DataDrivenTestRunner;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
 
 import Pages.AbstractPage;
 //import Pages.Common_Page;
@@ -24,8 +29,6 @@ import cucumber.api.java.pt.Dado;
 
 public class Common_StepDefinition extends AbstractPage {
 	WebDriver nav = getDriver();
-//	Common_Page login = new Common_Page(nav);
-//	geradorNumero gerador = new geradorNumero();
 	Date data = new Date();
 	
 	static String horas() {
@@ -47,7 +50,7 @@ public class Common_StepDefinition extends AbstractPage {
 		nav.get("http://192.168.15.100/b2c/index");	
 	}
 
-	
+
 	@After(order = 1)
 	public void screenShot(Scenario cenario) {				    
 		File file = ((TakesScreenshot) nav).getScreenshotAs(OutputType.FILE);
@@ -66,7 +69,7 @@ public class Common_StepDefinition extends AbstractPage {
 	@After(order = 0)
 	public void tearDown() {
 		System.out.println("Acabou");
-		try {Thread.sleep(2000);} catch (InterruptedException ex) {}
+		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
 		nav.quit();
 	}
 

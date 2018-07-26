@@ -16,7 +16,7 @@
         "after": [
           {
             "result": {
-              "duration": 2435631257,
+              "duration": 2483394047,
               "status": "passed"
             },
             "match": {
@@ -25,7 +25,7 @@
           },
           {
             "result": {
-              "duration": 2800097682,
+              "duration": 1865415475,
               "status": "passed"
             },
             "match": {
@@ -38,7 +38,7 @@
         "steps": [
           {
             "result": {
-              "duration": 9082229832,
+              "duration": 8769088756,
               "status": "passed"
             },
             "line": 10,
@@ -50,22 +50,143 @@
           },
           {
             "result": {
-              "duration": 4560035233,
+              "duration": 6146789351,
               "status": "passed"
             },
             "line": 11,
-            "name": "pesquisar e selecionar um hotel ou serciço adicional",
+            "name": "pesquisar um hotel por destino",
             "match": {
-              "location": "ReservarHotel.pesquisar_e_selecionar_um_hotel_ou_serciço_adicional()"
+              "location": "ReservarHotel.pesquisarUmHotelPorDestino()"
             },
             "keyword": "Quando "
           },
           {
             "result": {
-              "duration": 24752,
+              "duration": 4689457943,
               "status": "passed"
             },
             "line": 12,
+            "name": "preecher as datas",
+            "match": {
+              "location": "ReservarHotel.preecherAsDatas()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 3703435898,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "clicar em pesquisar",
+            "match": {
+              "location": "ReservarHotel.clicarEmPesquisar()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 3130905448,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "verificar o nome do hotel escolhido",
+            "match": {
+              "location": "ReservarHotel.verificarONomeDoHotelEscolhido()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 2119365320,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "verificar a quantidade de hóspedes",
+            "match": {
+              "location": "ReservarHotel.verificarAQuantidadeDeHóspedes()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 2220221155,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "selecionar ou não outro tipo de quarto",
+            "match": {
+              "location": "ReservarHotel.selecionarOuNãoOutroTipoDeQuarto()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 2244340417,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "verificar o nome do quarto",
+            "match": {
+              "location": "ReservarHotel.verificarONomeDoQuarto()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 134019443,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "verificar o nome do regime",
+            "match": {
+              "location": "ReservarHotel.verificarONomeDoRegime()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 193129775,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "verificar os valores",
+            "match": {
+              "location": "ReservarHotel.verificarOsValores()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 45427378390,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "selecionar ou não outros serviços",
+            "match": {
+              "location": "ReservarHotel.selecionarOuNãoOutrosServiços()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 3247455617,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "clicar em comprar",
+            "match": {
+              "location": "ReservarHotel.clicarEmComprar()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 748022512,
+              "error_message": "java.lang.IndexOutOfBoundsException: Index: 2, Size: 2\r\n\tat java.util.ArrayList.rangeCheck(Unknown Source)\r\n\tat java.util.ArrayList.get(Unknown Source)\r\n\tat Pages.Pagamento_Page.fillNames(Pagamento_Page.java:26)\r\n\tat steps.ReservarHotel.preencher_os_campos_de_pagamento(ReservarHotel.java:154)\r\n\tat ✽.E preencher os campos de pagamento(Reservar.feature:22)\r\n",
+              "status": "failed"
+            },
+            "line": 22,
             "name": "preencher os campos de pagamento",
             "match": {
               "location": "ReservarHotel.preencher_os_campos_de_pagamento()"
@@ -74,10 +195,9 @@
           },
           {
             "result": {
-              "duration": 35016,
-              "status": "passed"
+              "status": "skipped"
             },
-            "line": 13,
+            "line": 23,
             "name": "a reserva deverá ser confimada",
             "match": {
               "location": "ReservarHotel.a_reserva_deverá_ser_confimada()"

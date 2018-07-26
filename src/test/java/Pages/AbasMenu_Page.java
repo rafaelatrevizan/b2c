@@ -11,13 +11,13 @@ import junit.framework.Assert;
 
 @RunWith(DataDrivenTestRunner.class)
 
-public class Abas_Page extends Base_Page {
+public class AbasMenu_Page extends Base_Page {
 
-	public Abas_Page(WebDriver nav) {
+	public AbasMenu_Page(WebDriver nav) {
 		super(nav);
 	}
 
-	public Abas_Page clickAbaHotelResort() {
+	public AbasMenu_Page clickAbaHotelResort() {
 		
 		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
 		nav.findElement(By.xpath("//span[text() = \"Hotel/Resorts\"]")).click();
