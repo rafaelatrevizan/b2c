@@ -77,6 +77,7 @@ public class Reservar_PacoteAereo extends AbstractPage {
 	@Quando("^selecionar ou não outros serviços do pacote$")
 	public void selecionarOuNãoOutrosServiçosDoPacote() throws Throwable {
 	   servicos.clickTransferPacote();
+	   
 	}
 
 	
