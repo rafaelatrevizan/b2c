@@ -14,8 +14,6 @@ import junit.framework.Assert;
 @RunWith(DataDrivenTestRunner.class)
 
 public class Ingresso_Page extends Base_Page {
-	public String nomeIngresso1;
-
 	public Ingresso_Page(WebDriver nav) {
 		super(nav);
 	}
@@ -64,18 +62,5 @@ public class Ingresso_Page extends Base_Page {
 		return this;
 	}
 
-//	public Ingresso_Page nomeIngresso() {
-//
-//		try {
-//			Thread.sleep(1000);
-//		} catch (InterruptedException ex) {
-//		}
-//
-//		List<WebElement> nomeIngresso = nav.findElements(By.xpath("//div[@class = \"details detalhesServ\"]/h4"));
-//		nomeIngresso1 = nomeIngresso.get(1).getText();
-//		System.out.println(nomeIngresso1);
-//
-//		return this;
-//	}
 
 }

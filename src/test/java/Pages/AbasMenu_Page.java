@@ -18,11 +18,25 @@ public class AbasMenu_Page extends Base_Page {
 	}
 
 	public AbasMenu_Page clickAbaHotelResort() {
-		
-		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
+
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException ex) {
+		}
 		nav.findElement(By.xpath("//span[text() = \"Hotel/Resorts\"]")).click();
-		
+
 		return this;
 	}
-	
+
+	public AbasMenu_Page clickAbaPacoteAreo() {
+
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException ex) {
+		}
+		nav.findElement(By.xpath("//span[text() = \"Pacote Aéreo\"]")).click();
+
+		return this;
+	}
+
 }

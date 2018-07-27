@@ -11,11 +11,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import Pages.AbasMenu_Page;
 import Pages.AbasServiços_Page;
 import Pages.AbstractPage;
+import Pages.Comprovante_Page;
 import Pages.Ingresso_Page;
 import Pages.MaisServicos_Page;
 import Pages.Pagamento_Page;
-import Pages.ReservarHotel_Page;
+import Pages.Hotel_Page;
 import Pages.Transfer_Page;
+import cucumber.api.PendingException;
 import cucumber.api.java.pt.Então;
 import cucumber.api.java.pt.Quando;
 
@@ -25,12 +27,13 @@ public class ReservarHotel extends AbstractPage {
 
 	WebDriver nav = getDriver();
 	AbasMenu_Page aba = new AbasMenu_Page(nav);
-	ReservarHotel_Page hotel = new ReservarHotel_Page(nav);
+	Hotel_Page hotel = new Hotel_Page(nav);
 	AbasServiços_Page servicos = new AbasServiços_Page(nav);
 	Ingresso_Page ingresso = new Ingresso_Page(nav);
 	Transfer_Page transfer = new Transfer_Page(nav);
 	MaisServicos_Page mais = new MaisServicos_Page(nav);
 	Pagamento_Page pag = new Pagamento_Page(nav);
+	Comprovante_Page comp = new Comprovante_Page(nav);
 
 	// FEATURE: RESERVA HOTEL
 
@@ -61,7 +64,7 @@ public class ReservarHotel extends AbstractPage {
 			Thread.sleep(2000);
 		} catch (InterruptedException ex) {
 		}
-		hotel.checkRooms();
+		hotel.checkHospedes();
 	}
 
 	@Quando("^selecionar ou não outro tipo de quarto$")
@@ -96,14 +99,18 @@ public class ReservarHotel extends AbstractPage {
 		// ADICIONAR UM TRANSFER
 		servicos.clickTransfer();
 		transfer.checkDetalhes();
-		transfer.addIngresso();
+		transfer.addTransfer();
 
 		// ADICIONAR MAIS SERVICOS
 		servicos.clickMaisServicos();
 		mais.checkDetalhes();
-		mais.addIngresso();
+		mais.addMais();
 
 		servicos.clickDetalheViagem();
+		
+		//VERIFICA SE EXISTE OS 3 SERVIÇOS 
+		hotel.checkServicoAdicional();
+		
 		WebElement btnComprar2 = (new WebDriverWait(nav, 10))
 				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[text() = \"COMPRAR\"]")));
 
@@ -151,13 +158,90 @@ public class ReservarHotel extends AbstractPage {
 
 	@Quando("^preencher os campos de pagamento$")
 	public void preencher_os_campos_de_pagamento() throws Throwable {
-		pag.fillNames();
-
+//		pag.fillNames();
+		
+		//MÉTODO ALTERNATIVO - CLICA NO BOTÃO NA PARTE SUPERIOR PARA PREENCHER TODAS AS INFORMAÇÕES
+		pag.fillInformation();
+		
+		//PREENCHE CAMPO COM CARTÃO VÁLIDO
+		pag.fillNumeroCartaoValido("5260805648318901");
+		//PREENCHE CAMPO COM CARTÃO INVÁLIDO
+//		pag.fillNumeroCartaoInvalido("5503841169067772");
+		
+		//PREENCHE O NÚMERO DE PARCELAS
+		pag.fillParcelas();
+		
+		//PREENCHE O MES DE VENCIMENTO DO CARTÃO
+		pag.fillMes();
+		
+		//PREENCHE O ANO DE VENCIMENTO DO CARTÃO
+		pag.fillAno();
+		
+		//ACEITA OS TERMOS E CONDIÇOES
+		pag.clickTermosCondicoes();
+		
 	}
 
-	@Então("^a reserva deverá ser confimada$")
+	@Então("^a reserva deverá ser realizada$")
 	public void a_reserva_deverá_ser_confimada() throws Throwable {
+		pag.clickComprar();
+//		WebElement btnComprar2 = (new WebDriverWait(nav, 10))
+//				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@id = \"main\"]")));
+		try {Thread.sleep(10000);} catch (InterruptedException ex) {}
+
+		comp.checkReserva();
+		
+		System.out.println("A RESERVA FOI FEITA COM SUCESSO");
+	}
+	
+	//RESERVAR COM CARTÃO INVÁLIDO
+	@Quando("^preencher os campos de pagamento com cartão inválido$")
+	public void preencherOsCamposDePagamentoComCartãoInválido() throws Throwable {
+		//MÉTODO ALTERNATIVO - CLICA NO BOTÃO NA PARTE SUPERIOR PARA PREENCHER TODAS AS INFORMAÇÕES
+				pag.fillInformation();
+				
+				//PREENCHE CAMPO COM CARTÃO VÁLIDO
+//				pag.fillNumeroCartaoValido("5260805648318901");
+				//PREENCHE CAMPO COM CARTÃO INVÁLIDO
+				pag.fillNumeroCartaoInvalido("5503841169067772");
+				
+				//PREENCHE O NÚMERO DE PARCELAS
+				pag.fillParcelas();
+				
+				//PREENCHE O MES DE VENCIMENTO DO CARTÃO
+				pag.fillMes();
+				
+				//PREENCHE O ANO DE VENCIMENTO DO CARTÃO
+				pag.fillAno();
+				
+				//ACEITA OS TERMOS E CONDIÇOES
+				pag.clickTermosCondicoes();
+	}
+
+	@Então("^deverá ser exibido uma mensagem de erro$")
+	public void deveráSerExibidoUmaMensagemDeErro() throws Throwable {
+		pag.clickComprar();
+		pag.msgErroCartao();
+		
 
 	}
+	
+	//VALIDAR RESERVA COM CRIANÇA
+	@Quando("^adicionar uma ou mais crianças$")
+	public void adicionarUmaOuMaisCrianças() throws Throwable {
+	    hotel.selectCrianca();
+	    hotel.selectIdadeCrianca();
+	}
+
+	@Quando("^verificar a quantidade de hóspedes com crianca$")
+	public void verificarAQuantidadeDeHóspedesComCrianca() throws Throwable {
+	    hotel.checkHospedesCrianca();
+	}
+	
+	@Quando("^atualizar a idade da criança$")
+	public void atualizarAIdadeDaCriança() throws Throwable {
+	    pag.idadeCrianca();
+	}
+
 
 }

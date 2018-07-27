@@ -51,6 +51,17 @@ public class AbasServiços_Page extends Base_Page {
 		return this;
 	}
 	
+	public AbasServiços_Page clickTransferPacote() {
+
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException ex) {
+		}
+		nav.findElement(By.xpath("//ul[@id = \"drop-tabs\"]/li[4]")).click();
+
+		return this;
+	}
+	
 	public AbasServiços_Page clickMaisServicos() {
 
 		try {
@@ -58,6 +69,17 @@ public class AbasServiços_Page extends Base_Page {
 		} catch (InterruptedException ex) {
 		}
 		nav.findElement(By.xpath("//ul[@id = \"drop-tabs\"]/li[4]")).click();
+
+		return this;
+	}
+	
+	public AbasServiços_Page clickOutroVoo() {
+
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException ex) {
+		}
+		nav.findElement(By.xpath("//ul[@id = \"drop-tabs\"]/li[3]")).click();
 
 		return this;
 	}

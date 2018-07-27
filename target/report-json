@@ -6,40 +6,18 @@
         "value": "#language: pt"
       }
     ],
-    "line": 3,
+    "line": 4,
     "elements": [
       {
         "line": 9,
-        "name": "Deve validar a reserva de hotel",
+        "name": "Deve validar reserva",
         "description": "",
-        "id": "reservar;deve-validar-a-reserva-de-hotel",
-        "after": [
-          {
-            "result": {
-              "duration": 2483394047,
-              "status": "passed"
-            },
-            "match": {
-              "location": "Common_StepDefinition.screenShot(Scenario)"
-            }
-          },
-          {
-            "result": {
-              "duration": 1865415475,
-              "status": "passed"
-            },
-            "match": {
-              "location": "Common_StepDefinition.tearDown()"
-            }
-          }
-        ],
-        "type": "scenario",
-        "keyword": "Cenário",
+        "type": "background",
+        "keyword": "Contexto",
         "steps": [
           {
             "result": {
-              "duration": 8769088756,
-              "status": "passed"
+              "status": "skipped"
             },
             "line": 10,
             "name": "que esteja na página inicial",
@@ -47,73 +25,110 @@
               "location": "Common_StepDefinition.queEstejaNaPáginaInicial()"
             },
             "keyword": "Dado "
-          },
+          }
+        ]
+      },
+      {
+        "line": 13,
+        "name": "Deve validar a reserva de pacote aereo com cartão válido",
+        "description": "",
+        "id": "reservar;deve-validar-a-reserva-de-pacote-aereo-com-cartão-válido",
+        "type": "scenario",
+        "keyword": "Cenário",
+        "steps": [
           {
             "result": {
-              "duration": 6146789351,
-              "status": "passed"
+              "status": "skipped"
             },
-            "line": 11,
-            "name": "pesquisar um hotel por destino",
+            "line": 14,
+            "name": "clicar na aba Pacote Aereo",
             "match": {
-              "location": "ReservarHotel.pesquisarUmHotelPorDestino()"
+              "location": "Reservar_PacoteAereo.clicarNaAbaPacoteAereo()"
             },
             "keyword": "Quando "
           },
           {
             "result": {
-              "duration": 4689457943,
-              "status": "passed"
-            },
-            "line": 12,
-            "name": "preecher as datas",
-            "match": {
-              "location": "ReservarHotel.preecherAsDatas()"
-            },
-            "keyword": "E "
-          },
-          {
-            "result": {
-              "duration": 3703435898,
-              "status": "passed"
-            },
-            "line": 13,
-            "name": "clicar em pesquisar",
-            "match": {
-              "location": "ReservarHotel.clicarEmPesquisar()"
-            },
-            "keyword": "E "
-          },
-          {
-            "result": {
-              "duration": 3130905448,
-              "status": "passed"
-            },
-            "line": 14,
-            "name": "verificar o nome do hotel escolhido",
-            "match": {
-              "location": "ReservarHotel.verificarONomeDoHotelEscolhido()"
-            },
-            "keyword": "E "
-          },
-          {
-            "result": {
-              "duration": 2119365320,
-              "status": "passed"
+              "status": "skipped"
             },
             "line": 15,
-            "name": "verificar a quantidade de hóspedes",
+            "name": "pesquisar uma origem",
             "match": {
-              "location": "ReservarHotel.verificarAQuantidadeDeHóspedes()"
+              "location": "Reservar_PacoteAereo.pesquisarUmaOrigem()"
             },
             "keyword": "E "
           },
           {
             "result": {
-              "duration": 2220221155,
-              "status": "passed"
+              "status": "skipped"
             },
             "line": 16,
+            "name": "selecionar um destino",
+            "match": {
+              "location": "Reservar_PacoteAereo.selecionarUmDestino()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 17,
+            "name": "preecher as datas de ida de volta",
+            "match": {
+              "location": "Reservar_PacoteAereo.preecherAsDatasDeIdaDeVolta()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 18,
+            "name": "clicar em buscar",
+            "match": {
+              "location": "Reservar_PacoteAereo.clicarEmBuscar()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 19,
+            "name": "selecionar um hotel",
+            "match": {
+              "location": "Reservar_PacoteAereo.selecionarOutroHotel()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 20,
+            "name": "verificar o valor",
+            "match": {
+              "location": "Reservar_PacoteAereo.verificarAOrigemEDestinoEValor()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 21,
+            "name": "selecionar outro voo",
+            "match": {
+              "location": "Reservar_PacoteAereo.selecionarOutroVoo()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 22,
             "name": "selecionar ou não outro tipo de quarto",
             "match": {
               "location": "ReservarHotel.selecionarOuNãoOutroTipoDeQuarto()"
@@ -122,10 +137,9 @@
           },
           {
             "result": {
-              "duration": 2244340417,
-              "status": "passed"
+              "status": "skipped"
             },
-            "line": 17,
+            "line": 23,
             "name": "verificar o nome do quarto",
             "match": {
               "location": "ReservarHotel.verificarONomeDoQuarto()"
@@ -134,10 +148,9 @@
           },
           {
             "result": {
-              "duration": 134019443,
-              "status": "passed"
+              "status": "skipped"
             },
-            "line": 18,
+            "line": 24,
             "name": "verificar o nome do regime",
             "match": {
               "location": "ReservarHotel.verificarONomeDoRegime()"
@@ -146,10 +159,20 @@
           },
           {
             "result": {
-              "duration": 193129775,
-              "status": "passed"
+              "status": "skipped"
             },
-            "line": 19,
+            "line": 25,
+            "name": "verificar a quantidade de hóspedes",
+            "match": {
+              "location": "ReservarHotel.verificarAQuantidadeDeHóspedes()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 26,
             "name": "verificar os valores",
             "match": {
               "location": "ReservarHotel.verificarOsValores()"
@@ -158,22 +181,18 @@
           },
           {
             "result": {
-              "duration": 45427378390,
-              "status": "passed"
+              "status": "undefined"
             },
-            "line": 20,
-            "name": "selecionar ou não outros serviços",
-            "match": {
-              "location": "ReservarHotel.selecionarOuNãoOutrosServiços()"
-            },
+            "line": 27,
+            "name": "selecionar ou não outros serviços do pacote",
+            "match": {},
             "keyword": "E "
           },
           {
             "result": {
-              "duration": 3247455617,
-              "status": "passed"
+              "status": "skipped"
             },
-            "line": 21,
+            "line": 28,
             "name": "clicar em comprar",
             "match": {
               "location": "ReservarHotel.clicarEmComprar()"
@@ -182,11 +201,9 @@
           },
           {
             "result": {
-              "duration": 748022512,
-              "error_message": "java.lang.IndexOutOfBoundsException: Index: 2, Size: 2\r\n\tat java.util.ArrayList.rangeCheck(Unknown Source)\r\n\tat java.util.ArrayList.get(Unknown Source)\r\n\tat Pages.Pagamento_Page.fillNames(Pagamento_Page.java:26)\r\n\tat steps.ReservarHotel.preencher_os_campos_de_pagamento(ReservarHotel.java:154)\r\n\tat ✽.E preencher os campos de pagamento(Reservar.feature:22)\r\n",
-              "status": "failed"
+              "status": "skipped"
             },
-            "line": 22,
+            "line": 29,
             "name": "preencher os campos de pagamento",
             "match": {
               "location": "ReservarHotel.preencher_os_campos_de_pagamento()"
@@ -197,8 +214,8 @@
             "result": {
               "status": "skipped"
             },
-            "line": 23,
-            "name": "a reserva deverá ser confimada",
+            "line": 30,
+            "name": "a reserva deverá ser realizada",
             "match": {
               "location": "ReservarHotel.a_reserva_deverá_ser_confimada()"
             },
@@ -207,16 +224,22 @@
         ],
         "tags": [
           {
-            "line": 8,
-            "name": "@reservarHotel"
+            "line": 12,
+            "name": "@reservarPacoteAereo"
           }
         ]
       }
     ],
     "name": "Reservar",
-    "description": "Eu como usuário\r\nQuero entrar no Portal \r\nPara fazer uma reserva de hotel",
+    "description": "Eu como usuário\r\nQuero entrar no Portal \r\nPara fazer uma reserva de pacote aereo",
     "id": "reservar",
     "keyword": "Funcionalidade",
-    "uri": "Reservar.feature"
+    "uri": "Reservar_PacoteAereo.feature",
+    "tags": [
+      {
+        "line": 3,
+        "name": "@reservaPacoteAereoB2C"
+      }
+    ]
   }
 ]

@@ -9,103 +9,125 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 @RunWith(DataDrivenTestRunner.class)
 
-public class ReservarHotel_Page extends Base_Page {
-	private String nomeHotel;
-
-	public ReservarHotel_Page(WebDriver nav) {
+public class PacoteAereo_Page extends Base_Page {
+	private String nomeOrigem;
+	private String nomeDestino;
+	
+	public PacoteAereo_Page(WebDriver nav) {
 		super(nav);
 	}
 
-	public ReservarHotel_Page fillDestino(String destinoName) {
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException ex) {
-		}
-		WebElement destino = nav.findElement(By.id("inputdestino"));
+	public PacoteAereo_Page fillOrigem(String origemName) {
+		try {Thread.sleep(2000);} catch (InterruptedException ex) {	}
+		List<WebElement> origem = nav.findElements(By.xpath("//input[@name = \"origem\"]"));
 
-		destino.sendKeys(destinoName);
+		origem.get(2).sendKeys(origemName);
 
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException ex) {
-		}
-		destino.sendKeys(Keys.ENTER);
+		try {Thread.sleep(3000);} catch (InterruptedException ex) {}
+		origem.get(2).sendKeys(Keys.ENTER);
 
-		nomeHotel = destinoName;
+		nomeOrigem = origemName;
 
 		return this;
 	}
+	
+	public PacoteAereo_Page fillDestino() {
+		try {Thread.sleep(1000);} catch (InterruptedException ex) {	}
+		Select select = new Select(nav.findElement(By.xpath("//div[@id= \"sdpf\"]/div/select")));
+		select.selectByValue("M2975/Salvador, Brasil");
 
-	public ReservarHotel_Page chooseDatas() {
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException ex) {
-		}
-		nav.findElement(By.id("dataentrada")).click();
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException ex) {
-		}
-		nav.findElement(By.xpath("//a[text() = \"27\"]")).click();
-
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException ex) {
-		}
-		nav.findElement(By.id("datasaida")).click();
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException ex) {
-		}
-		nav.findElement(By.xpath("//a[text() = \"30\"]")).click();
+		nomeDestino = nav.findElement(By.xpath("//div[@id= \"sdpf\"]/div/select/option[3]")).getText();
 		return this;
 	}
 
-	public ReservarHotel_Page btnPesquisar() {
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException ex) {
-		}
-		nav.findElement(By.id("btnBuscar")).click();
+	public PacoteAereo_Page chooseDatas() {
+		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
+		
+		nav.findElement(By.id("pacoteF-dtPartida")).click();
+		
+		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
+
+		
+		nav.findElement(By.xpath("//a[text() = \"1\"]")).click();
+
+		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
+		nav.findElement(By.id("pacoteF-dtChegada")).click();//		
+		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
+		nav.findElement(By.xpath("//a[text() = \"3\"]")).click();
+		
+		return this;
+	}
+	
+	public PacoteAereo_Page selectCrianca() {	
+		Select select = new Select(nav.findElement(By.id("criancas")));
+		select.selectByValue("1");
+		return this;
+	}
+	
+	public PacoteAereo_Page selectIdadeCrianca() {
+		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
+		Select select = new Select(nav.findElement(By.id("idades")));
+		select.selectByValue("5");
 		return this;
 	}
 
-	public ReservarHotel_Page checkNomeHotel() {
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException ex) {
-		}
-		WebElement hotelDestacado = nav.findElement(By.xpath("//h3[contains(@class, \"tituloDestacado\")]"));
-		String hotel = hotelDestacado.getText();
-
-		if (hotel.contains(nomeHotel)) {
-			System.out.println("Hotel possui o nome pesquisado");
-		} else {
-			System.out.println("Hotel não possui nome pesquisado, algo deu errado");
-			throw new RuntimeException();
-		}
-
+	public PacoteAereo_Page btnPesquisar() {
+		try {Thread.sleep(2000);} catch (InterruptedException ex) {}
+		List<WebElement> buscar = nav.findElements(By.id("btnBuscar"));
+		buscar.get(3).click();
+		
+//		nav.findElement(By.xpath("//button[text() = \"Pesquisar\"]")).click();
 		return this;
 	}
 
-	public ReservarHotel_Page chooseQuarto() {
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException ex) {
-		}
+//	public PacoteAereo_Page checkOrigemDestino() {
+//		try {Thread.sleep(2000);} catch (InterruptedException ex) {}
+//		
+//		String origem = nav.findElement(By.xpath("//div[contains(@class, \"enderecoHotel\")]/p/i[1]")).getText();
+//		String destino = nav.findElement(By.xpath("//div[contains(@class, \"enderecoHotel\")]/p/i[2]")).getText();
+//
+////		List<WebElement> origemDestino = nav.findElements(By.xpath("//div[contains(@class, \"enderecoHotel\")]/p/i"));
+////		String origem = origemDestino.get(0).getText();
+////		String destino = origemDestino.get(1).getText();
+//
+//		if (origem.contains(nomeOrigem) && destino.contains(nomeDestino)) {
+//			System.out.println("A origem e destinos estão correto");
+//			System.out.println("Origem: " + origem + " e destino: " + destino);
+//			System.out.println("Origem: " + nomeOrigem + " e destino: " + nomeDestino);
+//
+//		} else {
+//			System.out.println("A origem e destino estão errados");
+//			System.out.println("Origem: " + origem + " e destino: " + destino);
+//			System.out.println("Origem: " + nomeOrigem + " e destino: " + nomeDestino);
+//			throw new RuntimeException();
+//		}
+//
+//		return this;
+//	}
+
+		//ESCOLHE O HOTEL RAFA TESTE
+	public PacoteAereo_Page chooseHotel() {
+		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
+		nav.findElement(By.xpath("//div[@class = \"hospedagemP2\"]/a")).click();
+		return this;
+	}
+	
+	public PacoteAereo_Page chooseQuarto() {
+		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
+
 		nav.findElement(By.xpath("//span[@id = \"pnlQuarto1\"]/label[2]")).click();
 		return this;
 	}
 
-	public ReservarHotel_Page checkQuarto() {
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException ex) {
-		}
+	public PacoteAereo_Page checkQuarto() {
+		try {Thread.sleep(2000);} catch (InterruptedException ex) {}
+
 		WebElement x = nav.findElement(By.xpath("//label[contains(@class, \"active\")]/div/div/strong"));
 		String nomeQuarto = x.getText();
 
@@ -125,7 +147,7 @@ public class ReservarHotel_Page extends Base_Page {
 		return this;
 	}
 
-	public ReservarHotel_Page checkRegime() {
+	public PacoteAereo_Page checkRegime() {
 		WebElement reg = nav.findElement(By.xpath("//label[contains(@class, \"active\")]/div/div[2]/div[2]"));
 		String regimeEsc = reg.getText();
 
@@ -145,7 +167,9 @@ public class ReservarHotel_Page extends Base_Page {
 		return this;
 	}
 
-	public ReservarHotel_Page checkRooms() {
+	public PacoteAereo_Page checkHospedes() {
+		try {Thread.sleep(2000);} catch (InterruptedException ex) {}
+
 		WebElement room = nav.findElement(By.xpath("//span[@class = \"search-rooms\"]/span[2]"));
 		// //span[@class = "search-rooms"]/span[2]
 		// *[@id="page-wrapper"]/section[1]/div/div[1]/div[1]/div/div[1]/span[2]/text()[2]
@@ -159,18 +183,45 @@ public class ReservarHotel_Page extends Base_Page {
 			System.out.println("Quantidade selecionada = " + roomQtdd);
 			System.out.println("Quantidade no detalhe = " + roomDetalhe);
 		} else {
-			System.out.println("Nome do regime não está correto");
-			System.out.println(
-					"Quantidade selecionada = " + roomQtdd + " Não é igual a quantidade no detalhe = " + roomDetalhe);
+			System.out.println("Quantidade selecionada = " + roomQtdd + " Não é igual a quantidade no detalhe = " + roomDetalhe);
+			throw new RuntimeException();
+		}
+
+		return this;
+	}
+	
+	public PacoteAereo_Page checkHospedesCrianca() {
+		try {Thread.sleep(2000);} catch (InterruptedException ex) {}
+		WebElement adults = nav.findElement(By.xpath("//span[@class = \"search-rooms\"]/span[2]"));
+		WebElement criancas = nav.findElement(By.xpath("//span[@class = \"search-rooms\"]/span[3]"));
+		// //span[@class = "search-rooms"]/span[2]
+		// *[@id="page-wrapper"]/section[1]/div/div[1]/div[1]/div/div[1]/span[2]/text()[2]
+		String adultsQtdd = adults.getText().toLowerCase();
+		String criancaQtdd = criancas.getText().toLowerCase();
+
+		WebElement detalheAdult1 = nav.findElement(By.xpath("//div[@class = \"guest\"]/div/div/div"));
+		String qttDetalhe = detalheAdult1.getText().toLowerCase();
+
+		if (qttDetalhe.contains(adultsQtdd) && qttDetalhe.contains(criancaQtdd)) {
+			System.out.println("A quantidade de quartos está correto");
+			System.out.println("Quantidade selecionada = " + adultsQtdd);
+			System.out.println("Quantidade no detalhe = " + qttDetalhe);
+			
+			System.out.println("Quantidade selecionada = " + criancaQtdd);
+			System.out.println("Quantidade no detalhe = " + qttDetalhe);
+		} else {
+			System.out.println("Quantidade selecionada = " + adultsQtdd + " Não é igual a quantidade no detalhe = " + qttDetalhe);
 			throw new RuntimeException();
 		}
 
 		return this;
 	}
 
-	public ReservarHotel_Page checkValores() {
-		WebElement vq = nav
-				.findElement(By.xpath("//label[contains(@class, \"active\")]/div/div[4]/div[2]/span/span[2]"));
+
+	public PacoteAereo_Page checkValores() {
+		try {Thread.sleep(3000);} catch (InterruptedException ex) {}
+
+		WebElement vq = nav.findElement(By.xpath("//div[contains(@class, \"checked\")]/following-sibling::div/div[3]/div[2]/span/span[2]"));
 		String valorQuarto = vq.getText();
 
 		WebElement pf = nav.findElement(By.xpath("//div[@class = \"finalPrice\"]/span[2]/span"));
@@ -194,12 +245,29 @@ public class ReservarHotel_Page extends Base_Page {
 
 		return this;
 	}
-
-	public ReservarHotel_Page checkValoresComServ() {
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException ex) {
+	
+	//VALIDA SE OS SERVIÇOS FORAM ADICIONADOS
+	public PacoteAereo_Page checkServicoAdicional() {
+		try {Thread.sleep(2000);} catch (InterruptedException ex) {}
+		 List<WebElement> adicional = nav.findElements(By.xpath("//div[@id =\"painelDetalheServInc\"]/div/p/following-sibling::div/div/div/div/span"));
+		 String servicoIngresso = adicional.get(1).getText();
+		 String servicoTransfer = adicional.get(5).getText();
+		 String servicoMais = adicional.get(9).getText();
+		 	 
+		if(servicoIngresso.equals("Show teste") && servicoTransfer.equals("TRANSFER TESTE ida e volta") && servicoMais.equals("passeio de cavalo")) {
+			System.out.println("Serviços adicionados com sucesso");
+			System.out.println(servicoIngresso);
+			System.out.println(servicoTransfer);
+			System.out.println(servicoMais);
+		}else {
+			System.out.println("Os serviços não foram adicionados");
 		}
+		 
+		 return this;
+		}
+
+	public PacoteAereo_Page checkValoresComServ() {
+		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
 
 		WebElement pf = nav.findElement(By.xpath("//div[@class = \"finalPrice\"]/span[2]/span"));
 		String precoFinal = pf.getText();
@@ -221,17 +289,9 @@ public class ReservarHotel_Page extends Base_Page {
 		return this;
 	}
 
-	// public ReservarHotel_Page checkServicoAdicional() {
-	// nav.findElement(By.xpath("//div[@id = \"painelDetalheServInc\"]/div/p"));
-	// WebElement adicional = nav.findElement(By.xpath("//div[@id =
-	// \"painelDetalheServInc\"]/div/p/following-sibling::div/div/div/div/span[2]"));
-	// String servico = adicional.getText();
-	// System.out.println(servico);
-	//
-	// return this;
-	// }
+	 
 
-	public ReservarHotel_Page alterarServIngresso() {
+	public PacoteAereo_Page alterarServIngresso() {
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException ex) {
@@ -250,7 +310,7 @@ public class ReservarHotel_Page extends Base_Page {
 		return this;
 	}
 
-	public ReservarHotel_Page alterarServTransfer() {
+	public PacoteAereo_Page alterarServTransfer() {
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException ex) {
@@ -269,7 +329,7 @@ public class ReservarHotel_Page extends Base_Page {
 		return this;
 	}
 
-	public ReservarHotel_Page alterarServMais() {
+	public PacoteAereo_Page alterarServMais() {
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException ex) {
@@ -288,7 +348,7 @@ public class ReservarHotel_Page extends Base_Page {
 		return this;
 	}
 
-	public ReservarHotel_Page removerIngresso() {
+	public PacoteAereo_Page removerIngresso() {
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException ex) {
@@ -300,7 +360,7 @@ public class ReservarHotel_Page extends Base_Page {
 		return this;
 	}
 
-	public ReservarHotel_Page removerTransfer() {
+	public PacoteAereo_Page removerTransfer() {
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException ex) {
@@ -312,7 +372,7 @@ public class ReservarHotel_Page extends Base_Page {
 		return this;
 	}
 
-	public ReservarHotel_Page removerServMais() {
+	public PacoteAereo_Page removerServMais() {
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException ex) {
@@ -326,7 +386,7 @@ public class ReservarHotel_Page extends Base_Page {
 
 	// ESSE MÉTODO IRÁ VALIDAR SE A DIV DE SERVIÇOS É EXIBIDA APÓS EXCLUIR TODDOS OS
 	// SERVIÇOS, CASO ELA SEJA ESTÁ ERRADO
-	public ReservarHotel_Page checkNoService() {
+	public PacoteAereo_Page checkNoService() {
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException ex) {
@@ -342,7 +402,7 @@ public class ReservarHotel_Page extends Base_Page {
 		return this;
 	}
 
-	public ReservarHotel_Page checkDucplicacaoServ() {
+	public PacoteAereo_Page checkDucplicacaoServ() {
 		// ARRUMAR PARA SER VALIDADO COM OUTRA TAG SEM SER ID
 		if (nav.findElement(By.id("tab-PASSEIO")).isDisplayed()) {
 			System.out.println("Foi exibido mais de uma linha");
@@ -352,7 +412,11 @@ public class ReservarHotel_Page extends Base_Page {
 		return this;
 	}
 
-	public ReservarHotel_Page clickComprar() {
+	public PacoteAereo_Page clickComprar() {
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException ex) {
+		}
 		nav.findElement(By.id("btnReservar")).click();
 
 		try {
@@ -369,5 +433,6 @@ public class ReservarHotel_Page extends Base_Page {
 
 		return this;
 	}
+
 
 }

@@ -50,7 +50,7 @@ public class Transfer_Page extends Base_Page {
 		return this;
 	}
 
-	public Transfer_Page addIngresso() {
+	public Transfer_Page addTransfer() {
 
 		try {
 			Thread.sleep(1000);

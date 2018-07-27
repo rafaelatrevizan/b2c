@@ -50,7 +50,7 @@ public class MaisServicos_Page extends Base_Page {
 		return this;
 	}
 
-	public MaisServicos_Page addIngresso() {
+	public MaisServicos_Page addMais() {
 
 		try {
 			Thread.sleep(1000);
