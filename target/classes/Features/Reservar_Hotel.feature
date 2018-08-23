@@ -14,8 +14,6 @@ Cenário: Deve validar a reserva de hotel com cartão válido
 Quando pesquisar um hotel por destino
 E preecher as datas
 E clicar em pesquisar
-E verificar o nome do hotel escolhido
-E verificar a quantidade de hóspedes
 E selecionar ou não outro tipo de quarto
 E verificar o nome do quarto
 E verificar o nome do regime
@@ -30,7 +28,6 @@ Cenário: Deve valdiar a reserva com cartão inválido
 Quando pesquisar um hotel por destino
 E preecher as datas
 E clicar em pesquisar
-E verificar o nome do hotel escolhido
 E clicar em comprar
 E preencher os campos de pagamento com cartão inválido
 Então deverá ser exibido uma mensagem de erro
@@ -41,8 +38,6 @@ Quando pesquisar um hotel por destino
 E preecher as datas
 E adicionar uma ou mais crianças
 E clicar em pesquisar
-E verificar o nome do hotel escolhido
-E verificar a quantidade de hóspedes com crianca
 E selecionar ou não outro tipo de quarto
 E verificar o nome do quarto
 E verificar o nome do regime

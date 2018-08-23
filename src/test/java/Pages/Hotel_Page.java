@@ -29,6 +29,8 @@ public class Hotel_Page extends Base_Page {
 		super(nav);
 	}
 
+	
+	//PREENCHER O DESTINO
 	public Hotel_Page fillDestino(String destinoName) {
 		try {
 			Thread.sleep(1000);
@@ -49,15 +51,19 @@ public class Hotel_Page extends Base_Page {
 		return this;
 	}
 
+	//ESCOLHER AS DATAS 
 	public Hotel_Page chooseDatas() {
 		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
 		
 		nav.findElement(By.id("dataentrada")).click();
 		
 		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
-
+		//Clica na seta para mudar para o mês de Setembro
+		nav.findElement(By.xpath("//a[@title = \"Próximo>\"]")).click();
 		
-		nav.findElement(By.xpath("//a[text() = \"28\"]")).click();
+		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
+		
+		nav.findElement(By.xpath("//a[text() = \"1\"]")).click();
 
 		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
 
@@ -65,11 +71,12 @@ public class Hotel_Page extends Base_Page {
 		
 		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
 
-		nav.findElement(By.xpath("//a[text() = \"30\"]")).click();
+		nav.findElement(By.xpath("//a[text() = \"10\"]")).click();
 		
 		return this;
 	}
 	
+	//SELECIONAR UMA CRIANÇA
 	public Hotel_Page selectCrianca() {	
 		Select select = new Select(nav.findElement(By.id("criancas")));
 		select.selectByValue("1");
@@ -83,6 +90,7 @@ public class Hotel_Page extends Base_Page {
 		return this;
 	}
 
+	//CLICAR NO BOTÃO PESQUISAR
 	public Hotel_Page btnPesquisar() {
 		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
 		List<WebElement> buscar = nav.findElements(By.id("btnBuscar"));
@@ -91,6 +99,7 @@ public class Hotel_Page extends Base_Page {
 		return this;
 	}
 
+	//VERIFICAR SE O NOME DO HOTEL PROCURADO CONTÉM NO NOME ACHADO
 	public Hotel_Page checkNomeHotel() {
 		try {Thread.sleep(2000);} catch (InterruptedException ex) {}
 
@@ -107,13 +116,15 @@ public class Hotel_Page extends Base_Page {
 		return this;
 	}
 
+	//SELECIONA OUTRO QUARTO
 	public Hotel_Page chooseQuarto() {
-		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
+		try {Thread.sleep(2000);} catch (InterruptedException ex) {}
 
 		nav.findElement(By.xpath("//span[@id = \"pnlQuarto1\"]/label[2]")).click();
 		return this;
 	}
 
+	//VERIFICAR SE O NOME DO QUARTO ESCOLHIDO ESTÁ CORRETO NO RESUMO DA COMPRA
 	public Hotel_Page checkQuarto() {
 		try {Thread.sleep(2000);} catch (InterruptedException ex) {}
 
@@ -136,6 +147,7 @@ public class Hotel_Page extends Base_Page {
 		return this;
 	}
 
+	//VERIFICA SE O REGIME DO QUARTO ESCOLHIDO ESTÁ CORRETO NO RESUMO DA COMPRA
 	public Hotel_Page checkRegime() {
 		WebElement reg = nav.findElement(By.xpath("//label[contains(@class, \"active\")]/div/div[2]/div[2]"));
 		String regimeEsc = reg.getText();
@@ -156,6 +168,7 @@ public class Hotel_Page extends Base_Page {
 		return this;
 	}
 
+	//VERIICA A QUANTIDADE DE HÓSPEDES
 	public Hotel_Page checkHospedes() {
 		try {Thread.sleep(2000);} catch (InterruptedException ex) {}
 
@@ -298,7 +311,7 @@ public class Hotel_Page extends Base_Page {
 		return this;
 	}
 
-	public Hotel_Page alterarServTransfer() {
+	public Hotel_Page alterarServPasseio() {
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException ex) {
@@ -312,29 +325,29 @@ public class Hotel_Page extends Base_Page {
 		} catch (InterruptedException ex) {
 		}
 		nav.findElement(By.xpath("//ul[@id = \"drop-tabs\"]/li[3]"));
-		System.out.println("Chegou em Transfer");
+		System.out.println("Chegou em Passeio");
 
 		return this;
 	}
 
-	public Hotel_Page alterarServMais() {
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException ex) {
-		}
-
-		List<WebElement> btnAlterar = nav.findElements(By.xpath("//u[text() = \"Alterar\"]"));
-		btnAlterar.get(2).click();
-
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException ex) {
-		}
-		nav.findElement(By.xpath("//ul[@id = \"drop-tabs\"]/li[4]"));
-		System.out.println("Chegou em mais Serviços");
-
-		return this;
-	}
+//	public Hotel_Page alterarServMais() {
+//		try {
+//			Thread.sleep(1000);
+//		} catch (InterruptedException ex) {
+//		}
+//
+//		List<WebElement> btnAlterar = nav.findElements(By.xpath("//u[text() = \"Alterar\"]"));
+//		btnAlterar.get(2).click();
+//
+//		try {
+//			Thread.sleep(1000);
+//		} catch (InterruptedException ex) {
+//		}
+//		nav.findElement(By.xpath("//ul[@id = \"drop-tabs\"]/li[4]"));
+//		System.out.println("Chegou em mais Serviços");
+//
+//		return this;
+//	}
 
 	public Hotel_Page removerIngresso() {
 		try {
@@ -347,8 +360,8 @@ public class Hotel_Page extends Base_Page {
 
 		return this;
 	}
-
-	public Hotel_Page removerTransfer() {
+	
+	public Hotel_Page removerPasseio() {
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException ex) {
@@ -360,17 +373,29 @@ public class Hotel_Page extends Base_Page {
 		return this;
 	}
 
-	public Hotel_Page removerServMais() {
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException ex) {
-		}
+//	public Hotel_Page removerTransfer() {
+//		try {
+//			Thread.sleep(2000);
+//		} catch (InterruptedException ex) {
+//		}
+//
+//		List<WebElement> btnAlterar = nav.findElements(By.xpath("//u[text() = \"Excluir\"]"));
+//		btnAlterar.get(0).click();
+//
+//		return this;
+//	}
 
-		List<WebElement> btnAlterar = nav.findElements(By.xpath("//u[text() = \"Excluir\"]"));
-		btnAlterar.get(0).click();
-
-		return this;
-	}
+//	public Hotel_Page removerServMais() {
+//		try {
+//			Thread.sleep(2000);
+//		} catch (InterruptedException ex) {
+//		}
+//
+//		List<WebElement> btnAlterar = nav.findElements(By.xpath("//u[text() = \"Excluir\"]"));
+//		btnAlterar.get(0).click();
+//
+//		return this;
+//	}
 
 	// ESSE MÉTODO IRÁ VALIDAR SE A DIV DE SERVIÇOS É EXIBIDA APÓS EXCLUIR TODDOS OS
 	// SERVIÇOS, CASO ELA SEJA ESTÁ ERRADO
@@ -390,21 +415,20 @@ public class Hotel_Page extends Base_Page {
 		return this;
 	}
 
-	public Hotel_Page checkDucplicacaoServ() {
-		// ARRUMAR PARA SER VALIDADO COM OUTRA TAG SEM SER ID
-		if (nav.findElement(By.id("tab-PASSEIO")).isDisplayed()) {
-			System.out.println("Foi exibido mais de uma linha");
-			throw new RuntimeException();
-		}
-
-		return this;
-	}
+//	public Hotel_Page checkDucplicacaoServ() {
+//		// ARRUMAR PARA SER VALIDADO COM OUTRA TAG SEM SER ID
+//		if (nav.findElement(By.id("tab-PASSEIO")).isDisplayed()) {
+//			System.out.println("Foi exibido mais de uma linha");
+//			throw new RuntimeException();
+//		}
+//
+//		return this;
+//	}
 
 	public Hotel_Page clickComprar() {
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException ex) {
-		}
+		WebElement btnComprar2 = (new WebDriverWait(nav, 10))
+				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[text() = \"COMPRAR\"]")));
+		
 		nav.findElement(By.id("btnReservar")).click();
 
 		try {

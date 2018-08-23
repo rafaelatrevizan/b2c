@@ -54,12 +54,12 @@ public class PacoteAereo_Page extends Base_Page {
 		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
 
 		
-		nav.findElement(By.xpath("//a[text() = \"1\"]")).click();
+		nav.findElement(By.xpath("//a[text() = \"9\"]")).click();
 
 		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
 		nav.findElement(By.id("pacoteF-dtChegada")).click();//		
 		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
-		nav.findElement(By.xpath("//a[text() = \"3\"]")).click();
+		nav.findElement(By.xpath("//a[text() = \"11\"]")).click();
 		
 		return this;
 	}

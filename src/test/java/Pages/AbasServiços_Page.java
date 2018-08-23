@@ -38,9 +38,42 @@ public class AbasServiços_Page extends Base_Page {
 
 		return this;
 	}
-
+//
+//	
+//	public AbasServiços_Page clickTransfer() {
+//
+//		try {
+//			Thread.sleep(1000);
+//		} catch (InterruptedException ex) {
+//		}
+//		nav.findElement(By.xpath("//ul[@id = \"drop-tabs\"]/li[3]")).click();
+//
+//		return this;
+//	}
 	
-	public AbasServiços_Page clickTransfer() {
+//	public AbasServiços_Page clickTransferPacote() {
+//
+//		try {
+//			Thread.sleep(1000);
+//		} catch (InterruptedException ex) {
+//		}
+//		nav.findElement(By.xpath("//ul[@id = \"drop-tabs\"]/li[4]")).click();
+//
+//		return this;
+//	}
+//	
+//	public AbasServiços_Page clickMaisServicos() {
+//
+//		try {
+//			Thread.sleep(1000);
+//		} catch (InterruptedException ex) {
+//		}
+//		nav.findElement(By.xpath("//ul[@id = \"drop-tabs\"]/li[4]")).click();
+//
+//		return this;
+//	}
+	
+	public AbasServiços_Page clickOutroVoo() {
 
 		try {
 			Thread.sleep(1000);
@@ -51,34 +84,10 @@ public class AbasServiços_Page extends Base_Page {
 		return this;
 	}
 	
-	public AbasServiços_Page clickTransferPacote() {
+	public AbasServiços_Page clickPasseio() {
 
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException ex) {
-		}
-		nav.findElement(By.xpath("//ul[@id = \"drop-tabs\"]/li[4]")).click();
-
-		return this;
-	}
-	
-	public AbasServiços_Page clickMaisServicos() {
-
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException ex) {
-		}
-		nav.findElement(By.xpath("//ul[@id = \"drop-tabs\"]/li[4]")).click();
-
-		return this;
-	}
-	
-	public AbasServiços_Page clickOutroVoo() {
-
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException ex) {
-		}
+		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
+		
 		nav.findElement(By.xpath("//ul[@id = \"drop-tabs\"]/li[3]")).click();
 
 		return this;

@@ -39,6 +39,13 @@ public class Pagamento_Page extends Base_Page {
 		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
 
 		nav.findElement(By.xpath("//button[text() = \"Completar Formulário\"]")).click();
+		
+		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
+		List<WebElement> nrDocumento = nav.findElements(By.xpath("//input[@name = \"nrDocumentoPassageiro[]\"]"));
+		nrDocumento.get(0).sendKeys("12345789");
+		nrDocumento.get(1).sendKeys("45678988");
+		
+		
 		return this;
 	}
 	

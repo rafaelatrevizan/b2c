@@ -25,7 +25,8 @@ public class Ingresso_Page extends Base_Page {
 		} catch (InterruptedException ex) {
 		}
 		// nav.findElement(By.xpath("//*[@id=\"servicos1\"]/div/div[1]/article/div/div[2]/div/span/span/a")).click();
-
+		
+		//Clica no botão Detalhes para abrir o modal
 		List<WebElement> detalhes = nav.findElements(By.xpath("//a[text() = \"Detalhes\"]"));
 		detalhes.get(2).click();
 
@@ -33,6 +34,7 @@ public class Ingresso_Page extends Base_Page {
 			Thread.sleep(1000);
 		} catch (InterruptedException ex) {
 		}
+		//Verifica se o modal foi aberto conferindo o nome dele
 		List<WebElement> popup = nav.findElements(By.xpath("//h4[@id = \"myModalLabel\"]"));
 		String textDetalhe = popup.get(1).getText();
 		System.out.println(textDetalhe + "do Ingresso");
@@ -42,6 +44,7 @@ public class Ingresso_Page extends Base_Page {
 			Thread.sleep(1000);
 		} catch (InterruptedException ex) {
 		}
+		//Clica no botão OK para fechar o botão
 		List<WebElement> btnOk = nav.findElements(By.xpath("//button[text() = \"OK\"]"));
 		btnOk.get(1).click();
 
@@ -55,7 +58,7 @@ public class Ingresso_Page extends Base_Page {
 			Thread.sleep(1000);
 		} catch (InterruptedException ex) {
 		}
-
+		//Clicar em Adicionar, para adicionar o serviço de Ingresso
 		List<WebElement> add = nav.findElements(By.xpath("//a[text() = \"ADICIONAR\"]"));
 		add.get(1).click();
 
