@@ -81,6 +81,7 @@ public class ReservarHotel extends AbstractPage {
 		// ADICIONAR UM INGRESSO
 		servicos.clickIngresso();
 		ingresso.checkDetalhes();
+		ingresso.addDataIngresso();
 		ingresso.addIngresso();
 
 		// ADICIONAR UM PASSEIO

@@ -1,0 +1,211 @@
+[
+  {
+    "comments": [
+      {
+        "line": 1,
+        "value": "#language: pt"
+      }
+    ],
+    "line": 4,
+    "elements": [
+      {
+        "line": 9,
+        "name": "Deve validar reserva",
+        "description": "",
+        "type": "background",
+        "keyword": "Contexto",
+        "steps": [
+          {
+            "result": {
+              "duration": 9828035375,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "que esteja na página inicial",
+            "match": {
+              "location": "Common_StepDefinition.queEstejaNaPáginaInicial()"
+            },
+            "keyword": "Dado "
+          }
+        ]
+      },
+      {
+        "line": 13,
+        "name": "Deve validar a reserva de hotel com cartão válido",
+        "description": "",
+        "id": "reservar;deve-validar-a-reserva-de-hotel-com-cartão-válido",
+        "after": [
+          {
+            "result": {
+              "duration": 2455698618,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Common_StepDefinition.screenShot(Scenario)"
+            }
+          },
+          {
+            "result": {
+              "duration": 1868338613,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Common_StepDefinition.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Cenário",
+        "steps": [
+          {
+            "result": {
+              "duration": 6598881424,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "pesquisar um hotel por destino",
+            "match": {
+              "location": "ReservarHotel.pesquisarUmHotelPorDestino()"
+            },
+            "keyword": "Quando "
+          },
+          {
+            "result": {
+              "duration": 4815871596,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "preecher as datas",
+            "match": {
+              "location": "ReservarHotel.preecherAsDatas()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 2777742360,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "clicar em pesquisar",
+            "match": {
+              "location": "ReservarHotel.clicarEmPesquisar()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 2247602472,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "selecionar ou não outro tipo de quarto",
+            "match": {
+              "location": "ReservarHotel.selecionarOuNãoOutroTipoDeQuarto()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 3839067178,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "verificar o nome do quarto",
+            "match": {
+              "location": "ReservarHotel.verificarONomeDoQuarto()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 160747479,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "verificar o nome do regime",
+            "match": {
+              "location": "ReservarHotel.verificarONomeDoRegime()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 252438884,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "verificar os valores",
+            "match": {
+              "location": "ReservarHotel.verificarOsValores()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 11801461972,
+              "error_message": "junit.framework.ComparisonFailure: expected:\u003cDetalhes [Serviços]\u003e but was:\u003cDetalhes [do serviço]\u003e\r\n\tat junit.framework.Assert.assertEquals(Assert.java:100)\r\n\tat junit.framework.Assert.assertEquals(Assert.java:107)\r\n\tat Pages.Passeio_Page.checkDetalhes(Passeio_Page.java:41)\r\n\tat steps.ReservarHotel.selecionarOuNãoOutrosServiços(ReservarHotel.java:89)\r\n\tat ✽.E selecionar ou não outros serviços(Reservar_Hotel.feature:21)\r\n",
+              "status": "failed"
+            },
+            "line": 21,
+            "name": "selecionar ou não outros serviços",
+            "match": {
+              "location": "ReservarHotel.selecionarOuNãoOutrosServiços()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 22,
+            "name": "clicar em comprar",
+            "match": {
+              "location": "ReservarHotel.clicarEmComprar()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 23,
+            "name": "preencher os campos de pagamento",
+            "match": {
+              "location": "ReservarHotel.preencher_os_campos_de_pagamento()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 24,
+            "name": "a reserva deverá ser realizada",
+            "match": {
+              "location": "ReservarHotel.a_reserva_deverá_ser_confimada()"
+            },
+            "keyword": "Então "
+          }
+        ],
+        "tags": [
+          {
+            "line": 12,
+            "name": "@reservarHotel"
+          }
+        ]
+      }
+    ],
+    "name": "Reservar",
+    "description": "Eu como usuário\r\nQuero entrar no Portal \r\nPara fazer uma reserva de hotel",
+    "id": "reservar",
+    "keyword": "Funcionalidade",
+    "uri": "Reservar_Hotel.feature",
+    "tags": [
+      {
+        "line": 3,
+        "name": "@reservaHotelB2C"
+      }
+    ]
+  }
+]

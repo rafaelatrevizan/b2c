@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import Suporte.Frame;
 import junit.framework.Assert;
@@ -28,7 +29,7 @@ public class Ingresso_Page extends Base_Page {
 		
 		//Clica no botão Detalhes para abrir o modal
 		List<WebElement> detalhes = nav.findElements(By.xpath("//a[text() = \"Detalhes\"]"));
-		detalhes.get(2).click();
+		detalhes.get(3).click();
 
 		try {
 			Thread.sleep(1000);
@@ -36,20 +37,42 @@ public class Ingresso_Page extends Base_Page {
 		}
 		//Verifica se o modal foi aberto conferindo o nome dele
 		List<WebElement> popup = nav.findElements(By.xpath("//h4[@id = \"myModalLabel\"]"));
-		String textDetalhe = popup.get(1).getText();
-		System.out.println(textDetalhe + "do Ingresso");
-		Assert.assertEquals("Detalhes Serviços", textDetalhe);
+		String textDetalhe = popup.get(2).getText();
+		System.out.println(textDetalhe + "do serviço");
+		Assert.assertEquals("Detalhes do serviço", textDetalhe);
 
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException ex) {
 		}
 		//Clica no botão OK para fechar o botão
-		List<WebElement> btnOk = nav.findElements(By.xpath("//button[text() = \"OK\"]"));
-		btnOk.get(1).click();
+		List<WebElement> btnOk = nav.findElements(By.xpath("//button[text() = \"Ok\"]"));
+		btnOk.get(2).click();
 
 		return this;
 	}
+	
+	public Ingresso_Page addDataIngresso() {
+
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException ex) {
+		}
+		//Clicar no combo para adicionar uma data ao ingresso
+		List<WebElement> comboData = nav.findElements(By.xpath("//label[text() = \"Data de Utilização:\"]/following-sibling::div"));
+		comboData.get(2).click();
+		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException ex) {
+		}
+	
+		List<WebElement> datas = nav.findElements(By.xpath("//option[text() = \"05/09/2018\"]"));
+		datas.get(2).click();
+	
+		return this;
+	}
+	
 
 	// //a[text() = "ADICIONAR"]
 	public Ingresso_Page addIngresso() {
@@ -59,8 +82,8 @@ public class Ingresso_Page extends Base_Page {
 		} catch (InterruptedException ex) {
 		}
 		//Clicar em Adicionar, para adicionar o serviço de Ingresso
-		List<WebElement> add = nav.findElements(By.xpath("//a[text() = \"ADICIONAR\"]"));
-		add.get(1).click();
+		List<WebElement> add = nav.findElements(By.xpath("//a[text() = \"Adicionar\"]"));
+		add.get(2).click();
 
 		return this;
 	}

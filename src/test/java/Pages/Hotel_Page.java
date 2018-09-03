@@ -57,13 +57,13 @@ public class Hotel_Page extends Base_Page {
 		
 		nav.findElement(By.id("dataentrada")).click();
 		
-		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
+//		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
 		//Clica na seta para mudar para o mês de Setembro
-		nav.findElement(By.xpath("//a[@title = \"Próximo>\"]")).click();
+//		nav.findElement(By.xpath("//a[@title = \"Próximo>\"]")).click();
 		
 		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
 		
-		nav.findElement(By.xpath("//a[text() = \"1\"]")).click();
+		nav.findElement(By.xpath("//a[text() = \"5\"]")).click();
 
 		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
 
