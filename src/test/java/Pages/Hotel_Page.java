@@ -63,7 +63,7 @@ public class Hotel_Page extends Base_Page {
 		
 		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
 		
-		nav.findElement(By.xpath("//a[text() = \"5\"]")).click();
+		nav.findElement(By.xpath("//a[text() = \"20\"]")).click();
 
 		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
 
@@ -71,7 +71,7 @@ public class Hotel_Page extends Base_Page {
 		
 		try {Thread.sleep(1000);} catch (InterruptedException ex) {}
 
-		nav.findElement(By.xpath("//a[text() = \"10\"]")).click();
+		nav.findElement(By.xpath("//a[text() = \"25\"]")).click();
 		
 		return this;
 	}

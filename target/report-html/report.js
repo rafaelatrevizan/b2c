@@ -34,7 +34,7 @@ formatter.match({
   "location": "Common_StepDefinition.queEstejaNaPáginaInicial()"
 });
 formatter.result({
-  "duration": 9828035375,
+  "duration": 10569522626,
   "status": "passed"
 });
 formatter.scenario({
@@ -110,57 +110,57 @@ formatter.match({
   "location": "ReservarHotel.pesquisarUmHotelPorDestino()"
 });
 formatter.result({
-  "duration": 6598881424,
+  "duration": 7072034103,
   "status": "passed"
 });
 formatter.match({
   "location": "ReservarHotel.preecherAsDatas()"
 });
 formatter.result({
-  "duration": 4815871596,
+  "duration": 5225750968,
   "status": "passed"
 });
 formatter.match({
   "location": "ReservarHotel.clicarEmPesquisar()"
 });
 formatter.result({
-  "duration": 2777742360,
+  "duration": 3317052806,
   "status": "passed"
 });
 formatter.match({
   "location": "ReservarHotel.selecionarOuNãoOutroTipoDeQuarto()"
 });
 formatter.result({
-  "duration": 2247602472,
+  "duration": 2422770280,
   "status": "passed"
 });
 formatter.match({
   "location": "ReservarHotel.verificarONomeDoQuarto()"
 });
 formatter.result({
-  "duration": 3839067178,
+  "duration": 3380360735,
   "status": "passed"
 });
 formatter.match({
   "location": "ReservarHotel.verificarONomeDoRegime()"
 });
 formatter.result({
-  "duration": 160747479,
+  "duration": 135439231,
   "status": "passed"
 });
 formatter.match({
   "location": "ReservarHotel.verificarOsValores()"
 });
 formatter.result({
-  "duration": 252438884,
+  "duration": 212558470,
   "status": "passed"
 });
 formatter.match({
   "location": "ReservarHotel.selecionarOuNãoOutrosServiços()"
 });
 formatter.result({
-  "duration": 11801461972,
-  "error_message": "junit.framework.ComparisonFailure: expected:\u003cDetalhes [Serviços]\u003e but was:\u003cDetalhes [do serviço]\u003e\r\n\tat junit.framework.Assert.assertEquals(Assert.java:100)\r\n\tat junit.framework.Assert.assertEquals(Assert.java:107)\r\n\tat Pages.Passeio_Page.checkDetalhes(Passeio_Page.java:41)\r\n\tat steps.ReservarHotel.selecionarOuNãoOutrosServiços(ReservarHotel.java:89)\r\n\tat ✽.E selecionar ou não outros serviços(Reservar_Hotel.feature:21)\r\n",
+  "duration": 7580355181,
+  "error_message": "java.lang.IndexOutOfBoundsException: Index: 2, Size: 0\r\n\tat java.util.ArrayList.rangeCheck(Unknown Source)\r\n\tat java.util.ArrayList.get(Unknown Source)\r\n\tat Pages.Ingresso_Page.addDataIngresso(Ingresso_Page.java:71)\r\n\tat steps.ReservarHotel.selecionarOuNãoOutrosServiços(ReservarHotel.java:84)\r\n\tat ✽.E selecionar ou não outros serviços(Reservar_Hotel.feature:21)\r\n",
   "status": "failed"
 });
 formatter.match({
@@ -182,11 +182,11 @@ formatter.result({
   "status": "skipped"
 });
 formatter.after({
-  "duration": 2455698618,
+  "duration": 2364169558,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1868338613,
+  "duration": 1846819239,
   "status": "passed"
 });
 });
